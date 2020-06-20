@@ -92,38 +92,38 @@
     </div>
 
 
-    <script>
+        <script>
         (function() {
-        let btn = document.querySelector('.btn'),
-            quantidadeAlunosEntrevistados = 0,
-            alunosMenos10Vezes = 0,
-            alunosEntre10e15Vezes = 0,
-            alunosAcima15Vezes = 0,
-            outputMenos10vezes = document.querySelector('#outputMenos10vezes'),
-            outputEntre10e15Vezes = document.querySelector('#outputEntre10e15Vezes'),
-            outputAcima15Vezes = document.querySelector('#outputAcima15Vezes');
+            let btn = document.querySelector('.btn'),
+                quantidadeAlunosEntrevistados = 0,
+                alunosMenos10Vezes = 0,
+                alunosEntre10e15Vezes = 0,
+                alunosAcima15Vezes = 0,
+                outputMenos10vezes = document.querySelector('#outputMenos10vezes'),
+                outputEntre10e15Vezes = document.querySelector('#outputEntre10e15Vezes'),
+                outputAcima15Vezes = document.querySelector('#outputAcima15Vezes');
 
-        btn.addEventListener('click', () => {
-            let quantidade = window.prompt('Quantas vezes utilizou o RU neste mês?');
-            if (quantidade === "" || isNaN(quantidade) === true || quantidade == null) {
-                window.alert('Número inválido!');
-            } else {
-                if (quantidade >= 0 && quantidade < 10) {
-                    alunosMenos10Vezes++;
-                } else if (quantidade >= 10 && quantidade <= 15) {
-                    alunosEntre10e15Vezes++;
+            btn.addEventListener('click', () => {
+                let quantidade = window.prompt('Quantas vezes utilizou o RU neste mês?');
+                if (quantidade === "" || isNaN(quantidade) === true || quantidade == null) {
+                    window.alert('Número inválido!');
                 } else {
-                    alunosAcima15Vezes++;
-                }
-                window.alert('Obrigado por participar!');
+                    if (quantidade >= 0 && quantidade < 10) {
+                        alunosMenos10Vezes++;
+                    } else if (quantidade >= 10 && quantidade <= 15) {
+                        alunosEntre10e15Vezes++;
+                    } else {
+                        alunosAcima15Vezes++;
+                    }
+                    window.alert('Obrigado por participar!');
 
-            // manipulação do DOM com os resultados parciais
-            outputMenos10vezes.innerText = alunosMenos10Vezes;
-            outputEntre10e15Vezes.innerText = alunosEntre10e15Vezes;
-            outputAcima15Vezes.innerText = alunosAcima15Vezes;
-        }
-    })
-})();
+                    // manipulação do DOM com os resultados parciais
+                    outputMenos10vezes.innerText = alunosMenos10Vezes;
+                    outputEntre10e15Vezes.innerText = alunosEntre10e15Vezes;
+                    outputAcima15Vezes.innerText = alunosAcima15Vezes;
+                }
+            })
+        })();
     </script>
 </body>
 </html>
