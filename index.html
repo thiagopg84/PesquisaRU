@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Universitário</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-size: 62.5%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(to bottom right, rgba(123,0,159,1) 0%, rgba(89,0,255,1) 100%);
+            padding: 2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            padding-top: 3rem;
+            color: aqua;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: aqua;
+            font-size: 1.6rem;
+            color: indigo;
+            padding: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            text-align: center;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color:rgb(0, 174, 255);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+        .resultados__cards {
+            padding-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-gap: 2rem;
+        }
+
+        .resultados__card p:first-child {
+            color: aqua;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .resultados__card p:not(:first-child) {
+            color: aqua;
+            font-size: 4rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="btn">Clique aqui para participar da pesquisa</div>
+    <div class="resultados">
+        <h3>Resultados:</h3>
+        <div class="resultados__cards">
+            <div class="resultados__card">
+                <p>Menos de 10 vezes:</p>
+                <p id="outputMenos10vezes">0</p>
+            </div>
+            <div class="resultados__card">
+                <p>Entre 10 e 15 vezes:</p>
+                <p id="outputEntre10e15Vezes">0</p>
+            </div>
+            <div class="resultados__card">
+                <p>Acima de 15 vezes:</p>
+                <p id="outputAcima15Vezes">0</p>
+            </div>
+        </div>    
+    </div>
+
+
+    <script>
+        (function() {
+        let btn = document.querySelector('.btn'),
+            quantidadeAlunosEntrevistados = 0,
+            alunosMenos10Vezes = 0,
+            alunosEntre10e15Vezes = 0,
+            alunosAcima15Vezes = 0,
+            outputMenos10vezes = document.querySelector('#outputMenos10vezes'),
+            outputEntre10e15Vezes = document.querySelector('#outputEntre10e15Vezes'),
+            outputAcima15Vezes = document.querySelector('#outputAcima15Vezes');
+
+        btn.addEventListener('click', () => {
+            let quantidade = window.prompt('Quantas vezes utilizou o RU neste mês?');
+            if (quantidade === "" || isNaN(quantidade) === true || quantidade == null) {
+                window.alert('Número inválido!');
+            } else {
+                if (quantidade >= 0 && quantidade < 10) {
+                    alunosMenos10Vezes++;
+                } else if (quantidade >= 10 && quantidade <= 15) {
+                    alunosEntre10e15Vezes++;
+                } else {
+                    alunosAcima15Vezes++;
+                }
+                window.alert('Obrigado por participar!');
+
+            // manipulação do DOM com os resultados parciais
+            outputMenos10vezes.innerText = alunosMenos10Vezes;
+            outputEntre10e15Vezes.innerText = alunosEntre10e15Vezes;
+            outputAcima15Vezes.innerText = alunosAcima15Vezes;
+        }
+    })
+})();
+    </script>
+</body>
+</html>
