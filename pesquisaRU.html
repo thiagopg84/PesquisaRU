@@ -105,7 +105,7 @@
 
             btn.addEventListener('click', () => {
                 let quantidade = window.prompt('Quantas vezes utilizou o RU neste mês?');
-                if (quantidade === "" || isNaN(quantidade) === true || quantidade == null) {
+                if (quantidade.trim() === "" || isNaN(quantidade) === true || quantidade == null) {
                     window.alert('Número inválido!');
                 } else {
                     if (quantidade >= 0 && quantidade < 10) {
